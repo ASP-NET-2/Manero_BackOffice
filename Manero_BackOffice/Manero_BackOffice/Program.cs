@@ -1,4 +1,6 @@
 using Manero_BackOffice.Client.Pages;
+using Manero_BackOffice.Client.Services;
+using Manero_BackOffice.Client.Shared.Models;
 using Manero_BackOffice.Components;
 using Manero_BackOffice.Components.Account;
 using Manero_BackOffice.Data;
@@ -13,6 +15,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+//------------TILLAGT av lisa----------------------
+builder.Services.AddScoped<ProductRegistration>(); // Registrera din Product-modell
+builder.Services.AddHttpClient<ProductRegistration>();
+builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
+
+builder.Services.AddAntiforgery();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("corsApp", builder =>
+    {
+        builder.WithOrigins("https://localhost:7237/api/Product/Create") // Add your Blazor app's URL
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 
 //------------TILLAGT----------------------
 
