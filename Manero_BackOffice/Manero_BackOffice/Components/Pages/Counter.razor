@@ -59,9 +59,9 @@
 
     <EditForm Model="product" FormName="Product" OnSubmit="CreateProduct">
 
-        <label for="categories">Choose a Category:</label>
+        <label class="form-group" for="categories">Choose a Category:</label>
 
-        <InputSelect @bind-Value="product.Category">
+        <InputSelect class="form-control" @bind-Value="product.Category">
         {
             @if (categories != null)
             {
@@ -72,28 +72,28 @@
             }           
         }
         </InputSelect>
-        <div>
+        <div class="form-group">
             <label class="input-label">Title:</label>
-            <InputText @bind-Value="product.Title" />
+            <InputText class="form-control" @bind-Value="product.Title" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Batch Number:</label>
-            <InputText @bind-Value="product.BatchNumber" />
+            <InputText class="form-control" @bind-Value="product.BatchNumber" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">image:</label>
-            <InputText disabled @bind-Value="@product.ImageUrl">@blobUrl</InputText>
+            <InputText class="form-control" disabled @bind-Value="@product.ImageUrl">@blobUrl</InputText>
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Original Price:</label>
-            <InputNumber @bind-Value="product.OriginalPrice" />
+            <InputNumber class="form-control" @bind-Value="product.OriginalPrice" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Discount Price:</label>
-            <InputText @bind-Value="product.DiscountPrice" />
+            <InputText class="form-control" @bind-Value="product.DiscountPrice" />
         </div>
         <label for="sizes">Choose a Size:</label>
-        <InputSelect @bind-Value="product.Size">
+        <InputSelect class="form-control" @bind-Value="product.Size">
             @if (sizes != null)
             {
                 @foreach (var size in sizes)
@@ -102,13 +102,13 @@
                 }
             }
         </InputSelect>
-        <div>
+        <div class="form-group">
             <label class="input-label">Description:</label>
-            <InputText @bind-Value="product.Description" />
+            <InputText class="form-control" @bind-Value="product.Description" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="colors">Choose a color:</label>
-            <InputSelect @bind-Value="product.Color">
+            <InputSelect class="form-control" @bind-Value="product.Color">
                 @if (colors != null)
                 {
                     @foreach (var color in colors)
@@ -118,40 +118,40 @@
                 }
             </InputSelect>
         </div>
-        <button type="submit">Skapa produkt</button> 
+        <button class="btn btn-primary" type="submit">Skapa produkt</button>
     </EditForm>
 </section>
 
 <section class="update-product">
     <h3>Update Product</h3>
     <EditForm Model="product" FormName="Product-utdate" OnValidSubmit="UpdateProduct">
-        <div>
+        <div class="form-group">
             <label class="input-label">Id of the Product:</label>
-            <InputText @bind-Value="product.Id"></InputText>
-            <button type="button" @onclick="FetchProduct">Fetch Product</button>
+            <InputText class="form-control" @bind-Value="product.Id"></InputText>
+            <button class="btn btn-primary" type="button" @onclick="FetchProduct">Fetch Product</button>
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Title:</label>
-            <InputText @bind-Value="product.Title" />
+            <InputText class="form-control" @bind-Value="product.Title" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Batch Number:</label>
-            <InputText @bind-Value="product.BatchNumber" />
+            <InputText class="form-control" @bind-Value="product.BatchNumber" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">image:</label>
-            <InputText @bind-Value="product.ImageUrl" />
+            <InputText class="form-control" @bind-Value="product.ImageUrl" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Original Price:</label>
-            <InputNumber @bind-Value="product.OriginalPrice" />
+            <InputNumber class="form-control" @bind-Value="product.OriginalPrice" />
         </div>
-        <div>
+        <div class="form-group">
             <label class="input-label">Discount Price:</label>
-            <InputText @bind-Value="product.DiscountPrice" />
+            <InputText class="form-control" @bind-Value="product.DiscountPrice" />
         </div>
         <label for="sizes">Choose a Size:</label>
-        <InputSelect @bind-Value="product.Size">
+        <InputSelect class="form-control" @bind-Value="product.Size">
             @if (sizes != null)
             {
                 @foreach (var size in sizes)
@@ -160,13 +160,13 @@
                 }
             }
         </InputSelect>
-        <div>
+        <div class="form-group">
             <label class="input-label">Description:</label>
-            <InputText @bind-Value="product.Description" />
+            <InputText class="form-control" @bind-Value="product.Description" />
         </div>
-        <div>
+        <div class="form-group">
             <label for="colors">Choose a color:</label>
-            <InputSelect @bind-Value="product.Color">
+            <InputSelect class="form-control" @bind-Value="product.Color">
                 @if (colors != null)
                 {
                     @foreach (var color in colors)
@@ -177,17 +177,17 @@
                 }
             </InputSelect>
         </div>
-        <button type="submit">Update Product</button>
+        <button class="btn btn-primary" type="submit">Update Product</button>
     </EditForm>
 </section>
 
 <section class="delete-product">
     <h3>Delete product by Id</h3>
     <EditForm Model="product" FormName="Product-delete" OnSubmit="DeleteProduct">
-        <div>
+        <div class="form-group">
             <label class="input-label">Id of the Product:</label>
-            <InputText @bind-Value="product.Id"></InputText>
-            <button type="submit">Delete</button>
+            <InputText class="form-control" @bind-Value="product.Id"></InputText>
+            <button class="btn btn-primary" type="submit">Delete</button>
         </div>
     </EditForm>
 </section>
